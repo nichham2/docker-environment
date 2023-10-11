@@ -38,9 +38,9 @@ if [ -x "$(command -v dnf)" ]; then
 # Distrib Debian / Ubuntu
 elif [ -x "$(command -v apt-get)" ]; then
     apt update && apt upgrade -y
-    apt install -y curl apt-transport-https ca-certificates gnupg2 software-properties-common apache2-utils
-    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
+    apt install apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     apt-get update -y
     apt-get -y install docker-ce docker-compose
 
