@@ -123,7 +123,7 @@ EOF
 touch /apps/traefik/config/acme.json
 chmod 600 /apps/traefik/config/acme.json
 docker network create proxy
-USERPASS=$(echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g)
+USERPASS=$(echo $(htpasswd -nb admin $PASSWORD_TRAEFIK) | sed -e s/\\$/\\$\\$/g)
 cat <<EOF >>/apps/traefik/docker-compose.yml
 version: "3.3"
 services:
