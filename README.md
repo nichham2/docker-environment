@@ -26,7 +26,7 @@
 
 ### Interactive
 ```bash
-bash -c "$(curl -s https://raw.githubusercontent.com/nichham2/docker-environment/main/install-docker-environment.sh)"
+sudo bash -c "$(curl -s https://raw.githubusercontent.com/nichham2/docker-environment/main/install-docker-environment.sh)"
 ```
 
 ### Not interactive
@@ -37,12 +37,12 @@ export NDD=<your_domain>
 export PASSWORD_TRAEFIK=<your_password>
 ```
 #### Redirect URL to IP
-You need to redirect this URL to server IP:
+You need to visit your DNS provider and redirect the below URLs to your server IP:
 - traefik.ndd
 - portainer.ndd
 
 ```bash
-bash -c "$(curl -s https://raw.githubusercontent.com/nichham2/docker-environment/main/install-docker-environment.sh)"
+sudo bash -c "$(curl -s https://raw.githubusercontent.com/nichham2/docker-environment/main/install-docker-environment.sh)"
 ```
 
 ---
@@ -110,7 +110,7 @@ Check result and get IP:
 |                       |                                                                                                                                  |
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 ```
-Don't forget to redirect traefik.xxxxx.xxx and portainer.xxxxx.xxx to 195.15.XXX.XX!   
+Don't forget to redirect traefik.xxxxx.xxx and portainer.xxxxx.xxx to 195.15.XXX.XX in your DNS providers portal!   
 In this example, Traefik is accessible from : https://traefik.xxxxx.xxx with admin / xXXxxXXXxx1111XXX1 and Portainer is accessible from : https://portainer.xxxxx.xxx
 
 ## Templates for Portainer
